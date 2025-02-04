@@ -11,6 +11,8 @@
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Email</th>
+                <th>password</th>
+                <th>role</th>
                 <th>Delete</th>
                 <th>Update</th>
             </tr>
@@ -22,13 +24,15 @@
                 <td><?php echo htmlspecialchars($user["first_name"]); ?></td>
                 <td><?php echo htmlspecialchars($user["last_name"]); ?></td>
                 <td><?php echo htmlspecialchars($user["email"]); ?></td>
+                <td><?php echo htmlspecialchars($user["password"]); ?></td>
+                <td><?php echo htmlspecialchars($user["role"]); ?></td>
                 <td>
-                    <a href="delete.php?id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm">
+                    <a href="index.php?action=delete&id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i> Delete
                     </a>
                 </td>
                 <td>
-                    <a href="update.php?id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">
+                    <a href="index.php?action=edit&id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">
                         <i class="fas fa-edit"></i> Update
                     </a>
                 </td>
