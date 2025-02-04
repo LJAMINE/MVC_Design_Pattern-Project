@@ -1,5 +1,5 @@
 <?php
-namespace App\config;
+namespace app\config;
 class Database {
     private static $conn = null; 
     public static function connect() {
@@ -22,10 +22,6 @@ class Database {
     }
 } 
 $conn = Database::connect();
-if ($conn) {
-    echo "Connected to the database successfully!";
-} else {
-    echo "Connection failed!";
-}
+
 
 ?>
