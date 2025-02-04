@@ -32,4 +32,27 @@ class User
         $stmt = $this->db->prepare($query);
         $stmt->execute([$first_name, $last_name, $email, $password, $role]);
     }
+    public function deleteUser($id)
+    {
+        $query = "DELETE FROM users WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+            return $stmt->execute([$id]);
+    }
+
+    public function updateUser($first_name, $last_name, $email, $password, $role,$id){
+        $query = "UPDATE users SET first_name=?,last_name=?,email=?,password=?,role=? WHERE id=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$first_name, $last_name, $email, $password, $role,$id]);
+
+    }
+    public function getUser($id)
+    {
+        
+        $query = "SELECT * from users where id =?";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+
 }
