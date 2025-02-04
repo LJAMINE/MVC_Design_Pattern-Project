@@ -1,0 +1,15 @@
+{
+  "name": "lenovo/mvc_merge",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "LJAMINE",
+      "email": "aminelmgrmj@gmail.com"
+    }
+  ],
+  "require": {}
+}
