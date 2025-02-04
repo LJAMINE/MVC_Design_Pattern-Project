@@ -1,10 +1,12 @@
 <?php
 
- namespace app\models;
- 
+namespace app\models;
+
 use app\Config\Database;
 use PDO;
- class User{
+
+class User
+{
     private $id;
     private $first_name;
     private $last_name;
@@ -15,18 +17,19 @@ use PDO;
 
     public function __construct()
     {
-        $this->db=Database::connect();
+        $this->db = Database::connect();
     }
-    public function getAllUser() {
-        $query = "SELECT * FROM users";  
+    public function getAllUser()
+    {
+        $query = "SELECT * FROM users order by id desc";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
- }
- 
- 
- 
- 
- 
- ?>
+    public function createUser($first_name, $last_name, $email, $password, $role)
+    {
+        $query = "INSERT INTO users (first_name,last_name,email,password,role) VALUES(?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$first_name, $last_name, $email, $password, $role]);
+    }
+}
