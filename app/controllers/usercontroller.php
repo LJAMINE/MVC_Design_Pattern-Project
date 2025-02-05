@@ -3,6 +3,7 @@
 
 namespace app\controllers;
 
+use app\models\Session;
 use app\models\User;
 
 class UserController
@@ -100,5 +101,12 @@ class UserController
         } else {
             echo "Error: Missing information.";
         }
+    }
+
+    public function logout(){
+        $newsessions=new Session();
+        $newsessions->destroySession();
+        header('Location: index.php?action=formsignin');
+
     }
 }

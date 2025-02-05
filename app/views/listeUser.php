@@ -2,6 +2,8 @@
 <?php include 'include/nav.php'; ?>
 
 
+
+<h1><?php echo $_SESSION["role"] ?></h1>
 <!-- Contenu -->
 <div class="container mt-5">
     <h2 class="text-center mb-4">Liste des Utilisateurs</h2>

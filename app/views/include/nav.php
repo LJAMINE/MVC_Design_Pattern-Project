@@ -15,11 +15,11 @@
                             class="fas fa-users"></i> Liste des
                         Utilisateurs</a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link active"
-                        href="http://localhost/MVC_Design_Pattern-Project/public/index.php?action=displayForm"><i
-                            class="fas fa-user-plus"></i> Créer Utilisateur</a>
-                </li> -->
+                        href="http://localhost/MVC_Design_Pattern-Project/public/index.php?action=logout"><i
+                            class="fas fa-user-plus"></i> log out</a>
+                </li>
             </ul>
         </div>
     </div>
