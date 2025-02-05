@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.php"><i class="fas fa-home"></i> Home</a>
+                    <a class="nav-link active"  href="http://localhost/MVC_Design_Pattern-Project/public/index.php?action=home"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active"
@@ -15,11 +15,11 @@
                             class="fas fa-users"></i> Liste des
                         Utilisateurs</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link"
+                <!-- <li class="nav-item">
+                    <a class="nav-link active"
                         href="http://localhost/MVC_Design_Pattern-Project/public/index.php?action=displayForm"><i
                             class="fas fa-user-plus"></i> Créer Utilisateur</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

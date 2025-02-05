@@ -10,29 +10,48 @@ class UserController
 
     public function index()
     {
+        require_once(__DIR__ . '/../views/homepage.php');
+    }
+    public function listUser()
+    {
         $userModel = new User();
         $users = $userModel->getAllUser();
-        require_once(__DIR__ . '/../views/homepage.php');
+        require_once(__DIR__ . '/../views/listeUser.php');
     }
     public function displayForm()
     {
-        require_once(__DIR__ . '/../views/creatuser.php');
+        require_once(__DIR__ . '/../views/register.php');
+    }
+    public function displayFormSignin()
+    {
+        require_once(__DIR__ . '/../views/signin.php');
     }
 
     public function create()
     {
-
-
         if (isset($_POST["createuser"])) {
-            echo "hhh";
+
             $first_name = $_POST["first_name"];
             $last_name = $_POST["last_name"];
             $email = $_POST["email"];
             $role = $_POST["role"];
             $password = $_POST["password"];
             $userModel = new User();
-            $users = $userModel->createUser($first_name, $last_name, $email, $password, $role);
-            header('location: index.php?action=liste');
+            $users = $userModel->register($first_name, $last_name, $email, $password, $role);
+            header('location: index.php?action=formsignin');
+        }
+    }
+    public function signinuser()
+    {
+        if (isset($_POST["signin"])) {
+
+
+            $email = $_POST["email"];
+
+            $password = $_POST["password"];
+            $userModel = new User();
+            $users = $userModel->signin($email, $password);
+          
         }
     }
 
@@ -55,26 +74,31 @@ class UserController
 
     public function editAction()
     {
+        if (isset($_GET["id"])) {
+            $id = intval($_GET["id"]); 
+        
+            $model = new User(); 
+            $user = $model->getUser($id); 
+        } else {
+            die("error.");
+        }
         require_once(__DIR__ . '/../views/updateuser.php');
     }
 
     public function updateUser()
     {
         if (isset($_POST['submit']) && isset($_GET['id'])) {
-            $id = $_GET['id'];  
+            $id = $_GET['id'];
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
-            $password = $_POST['password'];
             $email = $_POST['email'];
             $role = $_POST['role'];
-    
             $userUpdated = new User();
-            $userUpdated->updateUser($first_name, $last_name, $email, $password, $role, $id);
-            
+            $userUpdated->updateUser($first_name, $last_name, $email,  $role, $id);
+
             header('Location: index.php?action=liste');
         } else {
             echo "Error: Missing information.";
         }
     }
-    
 }
