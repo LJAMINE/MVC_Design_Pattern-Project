@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\Config\Database;
 use PDO;
+use app\models\Session; 
 
 class User
 {
@@ -52,16 +53,15 @@ class User
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
-            $_SESSION["user_id"] = $user["id"];
-            $_SESSION["role"] = $user["role"];
-            $_SESSION["email"] = $user["email"];
-            $_SESSION["first_name"] = $user["first_name"];
-            $_SESSION["last_name"] = $user["last_name"];
+            $session = new Session();
+            $session->setUserSession($user["id"], $user["first_name"], $user["last_name"], $user["email"], $user["role"]);
 
             if ($user["role"] === "admin") {
                 header("Location: index.php?action=liste");
+            } elseif ($user["role"] === "student") {
+echo "student";
             } else {
-                header("Location: dashboard.php"); 
+                echo "teahcer";
             }
             exit();
         } else {

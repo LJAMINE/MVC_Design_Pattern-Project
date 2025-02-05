@@ -36,7 +36,11 @@ switch ($action) {
     case 'home':
         $UserController->index();
         break;
+        case 'logout':
+            $UserController->logout();
+            break;
         default:
+        
         echo "<h2 style='color: red; text-align: center;'>Page non trouvée !</h2>";
         echo "<p style='text-align: center;'>L'action demandée n'existe pas. Veuillez vérifier l'URL et réessayer.</p>";
         break;
