@@ -1,44 +1,34 @@
  
-<?php
-require_once '../../vendor/autoload.php'; 
+<?php include 'include/header.php'; ?>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Créer un Utilisateur</h2>
 
-use App\Config\Database;
-
-try {
-    $conn = Database::connect();
-    echo "Database connection successful!";
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-
-Database::disconnect();
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="../../public/assests/style.css">
-</head>
-<body>
-    <div class="container">
-        <h2>Register</h2>
-        <form action="login.php" method="POST">
+    <div class="card p-4 shadow">
+        <form action="index.php?action=signin" method="POST">
            
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
-           
-            <button type="submit">sign in</button>
-            <p>you don't have an account? <a href="register.php">Register</a></p>
+
+            
+
+            <button type="submit" name="signin" class="btn btn-primary w-100"><i class="fas fa-user-plus"></i>
+                Ajouter</button>
+                
         </form>
+        <a href="index.php?action=register">Register</a>
     </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

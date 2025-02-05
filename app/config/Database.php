@@ -7,7 +7,7 @@ class Database {
             try {
 
                 $dsn = "pgsql:host=" . "localhost" . ";port=" . "5432" . ";dbname=" . "school";
-                self::$conn = new \PDO($dsn, "postgres", "12345");
+                self::$conn = new \PDO($dsn, "postgres", "root");
                 self::$conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (\PDOException $e) {
                 error_log("Connection failed: " . $e->getMessage());

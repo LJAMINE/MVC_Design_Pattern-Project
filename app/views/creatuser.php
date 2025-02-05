@@ -1,6 +1,6 @@
 <?php include 'include/header.php'; ?>
 <?php include 'include/nav.php'; ?>
-
+<!-- 
 <div class="container mt-5">
     <h2 class="text-center mb-4">Créer un Utilisateur</h2>
 
@@ -30,7 +30,8 @@
                 <label for="role" class="form-label">Rôle</label>
                 <select class="form-select" id="role" name="role" required>
                     <option value="admin">admin</option>
-                    <option value="client">Client</option>
+                    <option value="teacher">teacher</option>
+                    <option value="student"> student</option>
 
                 </select>
             </div>
@@ -46,4 +47,4 @@
 
 </body>
 
-</html>
+</html> -->

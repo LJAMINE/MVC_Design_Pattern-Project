@@ -4,14 +4,7 @@
 use app\models\User;
 
 // require_once __DIR__ . "../../vendor/autoload.php";
-if (isset($_GET["id"])) {
-    $id = intval($_GET["id"]); 
 
-    $model = new User(); 
-    $user = $model->getUser($id); 
-} else {
-    die("error.");
-}
 ?>
 
 
@@ -37,22 +30,20 @@ if (isset($_GET["id"])) {
                 <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
             </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Mot de passe</label>
-                <input type="password" class="form-control" id="password" name="password" value="<?php echo htmlspecialchars($user['password']); ?>" required>
-            </div>
+
 
             <div class="mb-3">
                 <label for="role" class="form-label">Rôle</label>
                 <select class="form-select" id="role" name="role" required>
                     <option value="admin">admin</option>
-                    <option value="client">Client</option>
+                    <option value="teacher">teacher</option>
+                    <option value="student"> student</option>
 
                 </select>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary w-100"><i class="fas fa-user-plus"></i>
-                Ajouter</button>
+            <button type="submit" name="submit" class="btn btn-primary w-100">
+                Modifier</button>
         </form>
     </div>
 </div>
